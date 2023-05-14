@@ -10,4 +10,10 @@ router.get("/updates", async (req, res) => {
   res.send(results).status(200)
 })
 
+router.get("/news", async (req, res) => {
+  let collection = await db.collection("news")
+  let results = await collection.find({}).toArray()
+  res.send(results).status(200)
+})
+
 export default router
